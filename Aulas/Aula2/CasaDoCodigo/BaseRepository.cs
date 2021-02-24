@@ -9,12 +9,12 @@ namespace CasaDoCodigo
     public class BaseRepository<T> where T: BaseModel//eSPECIFICANDO QUE O T SERÁ O TIPO DO MODELO, NA CLASSE PRODUTO POR EXEMPLO O T SERÁ PRODUTO
     {
         protected readonly ApplicationContext contexto;
-        protected readonly Microsoft.EntityFrameworkCore.DbSet<T> dbSets;
+        protected readonly Microsoft.EntityFrameworkCore.DbSet<T> dbSet;
 
         public BaseRepository(ApplicationContext contexto)
         {
             this.contexto = contexto;
-            dbSets = contexto.Set<T>();
+            dbSet = contexto.Set<T>();
         }
     }
 }

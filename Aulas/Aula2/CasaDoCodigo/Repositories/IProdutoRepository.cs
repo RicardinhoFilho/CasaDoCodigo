@@ -7,6 +7,8 @@ namespace CasaDoCodigo.Repositories
     {
         void SaveProdutos(List<ProdutoRepository.Livro> livros);
         IList<Produto> GetProdutos();//Método responsável por pegar Produtos dentro do nosso banco de dados
+
+         Produto GetProduto();
     }
 
 

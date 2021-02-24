@@ -11,10 +11,15 @@ namespace CasaDoCodigo.Repositories
         public ProdutoRepository(ApplicationContext contexto) : base(contexto)//Construtor responsável por passar o contexto para nossa classe base
         {
         }
-        
+
+        public Produto GetProduto()
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<Produto> GetProdutos()
         {
-            return dbSets.ToList();
+            return dbSet.ToList();
         }
 
         public void SaveProdutos(List<Livro> livros)
@@ -22,9 +27,9 @@ namespace CasaDoCodigo.Repositories
             foreach (var livro in livros)
             {
            
-                if (!dbSets.Where(p => p.Codigo == livro.Codigo).Any())//A função checa se os dados do arquivo json estão em nosso banco de dados, se não estiverem estamos adicionando. Como queremos efetuar a ação quando o condição for negativa, colocamos no inicio "!", para inverter o resultado 
+                if (!dbSet.Where(p => p.Codigo == livro.Codigo).Any())//A função checa se os dados do arquivo json estão em nosso banco de dados, se não estiverem estamos adicionando. Como queremos efetuar a ação quando o condição for negativa, colocamos no inicio "!", para inverter o resultado 
                 {
-                    dbSets.Add(new Produto(livro.Codigo, livro.Nome, livro.Preco));
+                    dbSet.Add(new Produto(livro.Codigo, livro.Nome, livro.Preco));
 
                 }
             }
